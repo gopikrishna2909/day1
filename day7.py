@@ -14,6 +14,9 @@ while placeholder != choosen_word:
     print(f'''you have {lives}/6 chances to guess the word''')
     guess = input("Guess a letter: ").lower()
 
+    if guess in placeholder:
+        print(f"you already gueesed the letter: {guess}")
+
     for j,k in enumerate(choosen_word):
         if k==guess:
             placeholder = placeholder[:j] + guess + placeholder[j+1:]
@@ -23,12 +26,12 @@ while placeholder != choosen_word:
         if lives == 0:
 
             print(stages[lives])
-            print("game over")
+            print(f"the correct word is {choosen_word}, you loose, game over")
             break
-    elif k in choosen_word:
-        print(f"you already gueesed the letter: {guess}")
-    print("Current progress:", placeholder)
-    print(stages[lives])
+    if placeholder == choosen_word:
+        print("you win")
+    print("The correct word is :", placeholder)
+
 
 
 
