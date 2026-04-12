@@ -18,7 +18,7 @@ game =[]
 
 score = 0
 def start_game():
-
+    global game
     while len(game)!=2:
         name = random.choice(list(actors.keys()))
         if name not in game:
@@ -35,7 +35,7 @@ def end_game(score_card):
         if user_input == "a":
             if actors[game[0]]>actors[game[1]]:
                 score_card+=1
-                game = []
+                game = [game[0]]
                 print(score_card)
             else:
                 print("you lost")
@@ -45,7 +45,7 @@ def end_game(score_card):
         elif user_input == "b":
             if actors[game[1]]>actors[game[0]]:
                 score_card += 1
-                game = []
+                game = [game[1]]
                 print(score_card)
             else:
                 print("you lost")
