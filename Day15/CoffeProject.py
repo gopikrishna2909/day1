@@ -74,7 +74,7 @@ def coffee_machine():
 
             for key in MENU[user_choice]['ingredients']:
                 if key in resources:
-                    if resources[key] > MENU[user_choice]['ingredients'][key]:
+                    if resources[key] >= MENU[user_choice]['ingredients'][key]:
                         resources[key] -= MENU[user_choice]['ingredients'][key]
                     else:
                         print(f'Sorry there is no enough {key}')
