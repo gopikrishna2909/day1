@@ -77,30 +77,29 @@ def make_coffee(drink_name,ingredients):
 
 
 
-def coffee_machine():
 
-    global money
 
-    machine = True
-    while machine:
-        user_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
-        if user_choice == 'off':
-            print('Switching off')
-            machine = False
-        elif user_choice == 'report':
-            report()
-        else:
-            drink = MENU[user_choice]
-            if is_resource_sufficient(user_choice):
-                payment = coins()
-                if is_transaction_successful(payment,drink['cost']):
-                    make_coffee(user_choice,drink['ingredients'])
 
+machine = True
+while machine:
+    user_choice = input("What would you like? (espresso/latte/cappuccino): ").lower()
+    if user_choice == 'off':
+        print('Switching off')
+        machine = False
+    elif user_choice == 'report':
+        report()
+    else:
+        drink = MENU[user_choice]
+        if is_resource_sufficient(user_choice):
+            payment = coins()
+            if is_transaction_successful(payment,drink['cost']):
+                make_coffee(user_choice,drink['ingredients'])
 
 
 
 
-coffee_machine()
+
+
 
 
 # change = coins()
